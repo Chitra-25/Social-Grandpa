@@ -3,393 +3,500 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-      <title>ECSG</title>
+      <title>Social Grandpa</title>
       <!-- Compiled css -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.8/dist/css/uikit.min.css" />
-
       <link rel="stylesheet" href="./assets/css/style.css"/>
       <!-- UIkit JS -->
       <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.8/dist/js/uikit.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.8/dist/js/uikit-icons.min.js"></script>
-
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    </head>
+   <style>
+      .sentence{
+      color: #222;
+      font-size: 50px;
+      text-align: center;
+      font-weight: bolder;
+      }
+      /*Wrapper*/
+      .wrapper{
+      background-color: #f5f5f5;
+      font-family: 'Raleway', sans-serif;
+      margin: 100px auto;
+      padding: 40px 40px;
+      position: relative;
+      width: 70%;
+      }
+      /*Vertical Sliding*/
+      .slidingVertical{
+      display: inline;
+      text-indent: 8px;
+      }
+      .slidingVertical span{
+      animation: topToBottom 12.5s linear infinite 0s;
+      -ms-animation: topToBottom 12.5s linear infinite 0s;
+      -webkit-animation: topToBottom 12.5s linear infinite 0s;
+      color: #00abe9;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      }
+      .slidingVertical span:nth-child(2){
+      animation-delay: 2.5s;
+      -ms-animation-delay: 2.5s;
+      -webkit-animation-delay: 2.5s;
+      }
+      .slidingVertical span:nth-child(3){
+      animation-delay: 5s;
+      -ms-animation-delay: 5s;
+      -webkit-animation-delay: 5s;
+      }
+      .slidingVertical span:nth-child(4){
+      animation-delay: 7.5s;
+      -ms-animation-delay: 7.5s;
+      -webkit-animation-delay: 7.5s;
+      }
+      .slidingVertical span:nth-child(5){
+      animation-delay: 10s;
+      -ms-animation-delay: 10s;
+      -webkit-animation-delay: 10s;
+      }
+      /*topToBottom Animation*/
+      @-moz-keyframes topToBottom{
+      0% { opacity: 0; }
+      5% { opacity: 0; -moz-transform: translateY(-50px); }
+      10% { opacity: 1; -moz-transform: translateY(0px); }
+      25% { opacity: 1; -moz-transform: translateY(0px); }
+      30% { opacity: 0; -moz-transform: translateY(50px); }
+      80% { opacity: 0; }
+      100% { opacity: 0; }
+      }
+      @-webkit-keyframes topToBottom{
+      0% { opacity: 0; }
+      5% { opacity: 0; -webkit-transform: translateY(-50px); }
+      10% { opacity: 1; -webkit-transform: translateY(0px); }
+      25% { opacity: 1; -webkit-transform: translateY(0px); }
+      30% { opacity: 0; -webkit-transform: translateY(50px); }
+      80% { opacity: 0; }
+      100% { opacity: 0; }
+      }
+      @-ms-keyframes topToBottom{
+      0% { opacity: 0; }
+      5% { opacity: 0; -ms-transform: translateY(-50px); }
+      10% { opacity: 1; -ms-transform: translateY(0px); }
+      25% { opacity: 1; -ms-transform: translateY(0px); }
+      30% { opacity: 0; -ms-transform: translateY(50px); }
+      80% { opacity: 0; }
+      100% { opacity: 0; }
+      }
+   </style>
    <body>
-<header>
-      <!-- Sticky navbar -->
-      <div class="uk-position-top" id="top">
-         <nav class="uk-navbar-container uk-navbar-transparent uk-light" data-uk-navbar="dropbar: false;"
-            data-uk-sticky="animation: uk-animation-slide-top;
-            sel-target: .uk-navbar-container;
-            cls-active: uk-navbar-sticky;
-            cls-inactive: uk-navbar-transparent uk-light; top: 0">
-
-            <div class="uk-navbar-left">
-               <a class="uk-navbar-item uk-logo" href="/"><img data-src="#"  alt="" uk-img></a>
-
-            </div>
-            <div class="uk-navbar-right">
-              <ul class="uk-navbar-nav uk-visible@m">
-                 <li class="uk-active"><a href="/">HOME</a></li>
+      <header>
+         <!-- Sticky navbar -->
+         <div class="uk-position-top" id="top">
+            <nav class="uk-navbar-container uk-navbar-transparent uk-light" data-uk-navbar="dropbar: false;"
+               data-uk-sticky="animation: uk-animation-slide-top;
+               sel-target: .uk-navbar-container;
+               cls-active: uk-navbar-sticky;
+               cls-inactive: uk-navbar-transparent uk-light; top: 0">
+               <div class="uk-navbar-left">
+                  <a class="uk-navbar-item uk-logo" href="/"><img data-src="assets/images/SG.png" width="100" height="50"  alt="" uk-img></a>
+               </div>
+               <div class="uk-navbar-right">
+                  <ul class="uk-navbar-nav uk-visible@m">
+                     <li class="uk-active"><a href="/">HOME</a></li>
+                     <li><a href="/about">ABOUT</a></li>
+                     <li><a href="/works">WORKS</a></li>
+                     <li>
+                        <a>SERVICES</a>
+                        <div class="uk-navbar-dropdown">
+                           <ul class="uk-nav uk-navbar-dropdown-nav">
+                              <li ><a href="/branding">Branding</a></li>
+                              <li><a href="/development">Development</a></li>
+                              <li><a href="/social-media-marketing">Social Media Marketing</a></li>
+                              <li><a href="/seo">SEO</a></li>
+                              <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li><a href="/contact">CONTACT</a></li>
+                  </ul>
+               </div>
+               <a class="uk-navbar-toggle uk-hidden@m" href="#" data-uk-toggle="target: #offcanvas-nav-primary">
+               <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
+               </a>
+         </div>
+         </nav>
+         </div>
+         <nav id="offcanvas-nav-primary" data-uk-offcanvas="overlay: true; mode: push; flip: true">
+            <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+               <a class="uk-align-center uk-logo" href="/"><img data-src="assets/images/SG.png" width="100" height="50" alt="" uk-img></a>
+               <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                  <li class="uk-active"><a href="/">HOME</a></li>
                   <li><a href="/about">ABOUT</a></li>
-                   <li><a href="/works">WORKS</a></li>
-                 <li>
-                    <a>SERVICES</a>
-                    <div class="uk-navbar-dropdown">
-                       <ul class="uk-nav uk-navbar-dropdown-nav">
-                          <li ><a href="/branding">Branding</a></li>
-                          <li><a href="/development">Development</a></li>
-                          <li><a href="/social-media-marketing">Social Media Marketing</a></li>
-                          <li><a href="/seo">SEO</a></li>
-                          <li><a href="/ppc-advertising">PPC Advertising</a></li>
-                        </ul>
-                    </div>
-                 </li>
-
-                 <li><a href="/contact">CONTACT</a></li>
-              </ul>
-            </div>
-            <a class="uk-navbar-toggle uk-hidden@m" href="#" data-uk-toggle="target: #offcanvas-nav-primary">
-            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
-            </a>
-      </div>
-      </nav>
-      </div>
-
-
-      <nav id="offcanvas-nav-primary" data-uk-offcanvas="overlay: true; mode: push; flip: true">
-         <div class="uk-offcanvas-bar uk-flex uk-flex-column">
-            <a class="uk-align-center uk-logo" href="/"><img data-src="#" width="150" height="100" alt="" uk-img></a>
-            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-              <li class="uk-active"><a href="/">HOME</a></li>
-               <li><a href="/about">ABOUT</a></li>
-                <li><a href="/works">WORKS</a></li>
+                  <li><a href="/works">WORKS</a></li>
                   <a href="#">SERVICES</a>
                   <ul class="uk-nav-sub">
-                    <li ><a href="/branding">Branding</a></li>
-                    <li><a href="/development">Development</a></li>
-                    <li><a href="/social-media-marketing">Social Media Marketing</a></li>
-                    <li><a href="/seo">SEO</a></li>
-                    <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                     <li ><a href="/branding">Branding</a></li>
+                     <li><a href="/development">Development</a></li>
+                     <li><a href="/social-media-marketing">Social Media Marketing</a></li>
+                     <li><a href="/seo">SEO</a></li>
+                     <li><a href="/ppc-advertising">PPC Advertising</a></li>
                   </ul>
-               </li>
-               <li class=""><a href="/contact">CONTACT</a></li>
-            </ul>
-            <div class="uk-margin">
-                <form class="uk-search uk-search-default">
-                    <span uk-search-icon></span>
-                    <input class="uk-search-input" type="search" placeholder="Search">
-                </form>
+                  </li>
+                  <li class=""><a href="/contact">CONTACT</a></li>
+               </ul>
+               <div class="uk-margin">
+                  <form class="uk-search uk-search-default">
+                     <span uk-search-icon></span>
+                     <input class="uk-search-input" type="search" placeholder="Search">
+                  </form>
+               </div>
             </div>
-         </div>
-      </nav>
-</header>
-      <section class="uk-section-large uk-section-default" >
-               <div class="uk-container">
-                  <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                     <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                        <div class="uk-width-expand">
-
-                  <h2>RABBIT STUDIO</h2>
-          <p>We are multi-disciplinary design and digital agency, specialised in creating experiences and engagements in various channels.</p>
-						</div>
-                     </div>
+         </nav>
+      </header>
+      <section class="uk-section-small landing-page-heading  uk-section-default" >
+         <div class="uk-container">
+            <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+               <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+                  <div class="uk-width-expand">
+                     <h2 class="sentence">
+                        Ideating your
+                        <div class="slidingVertical">
+                           <span>Brand</span>
+                           <span>Visuals</span>
+                           <span>Words</span>
+                           <span>Reach</span>
+                           <span>Growth</span>
+                        </div>
+                     </h2>
                   </div>
                </div>
-            </section>
-
-                  <section class="uk-section-small uk-section-default section-container" >
-                    <div class="uk-container">
-                       <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                          <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                             <div class="uk-width-expand">
-                               <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                                   <div>
-                                       <div class="uk-card uk-card-default uk-card-body"><h2>Visual and Branding</h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-                                   </div>
-                                   <div>
-                                       <div class="uk-card uk-card-default uk-card-body"><h2>Visual and Branding</h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-                                   </div>
-                               </div>
-
-                               <div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
-                                   <div>
-                                       <div class="uk-card uk-card-default uk-card-body"><h2>Visual and Branding</h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-                                   </div>
-                                   <div>
-                                       <div class="uk-card uk-card-default uk-card-body"><h2>Visual and Branding</h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-                                   </div>
-                               </div>
-                </div>
-              </div>
             </div>
-          </div>
-                </section>
-
-                <section class="uk-section-small uk-section-default" >
-                  <div class="uk-container">
-                     <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                        <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                           <div class="uk-width-expand">
-                             <h2>Clients.</h2>
-			  <div uk-slider="autoplay: true; autoplay-interval: 1000">
-					<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-					   <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m ">
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" height="500px" widtht="500px">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg"alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg"alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="assets/images/konguvanam-logo.png" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="assets/images/bitbrainstech-logo.png" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="assets/images/rathinam-logo.png" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-						  <li>
-							 <img src="assets/images/dhrona-logo.png" alt="">
-							 <div class="uk-position-center uk-panel"></div>
-						  </li>
-					   </ul>
-					   <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-					   <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-					</div>
-					<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-				 </div>
-			  </div>
-			</div>
-	  </section>
-
-                <section class="uk-section-large uk-section-default" >
-                  <div class="uk-container">
-                     <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                        <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                           <div class="uk-width-expand">
-<h2>Works.</h2>
-            <div class="uk-grid-match uk-child-width-1-3@s uk-flex-center " uk-grid>
-         <div>
-                          <div class="uk-card uk-card-hover">
-                             <div class="uk-card-media-top container">
-                                <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
-                                <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-                             </div>
-
-                          </div>
          </div>
-         <div>
-                          <div class="uk-card   uk-card-hover">
-                             <div class="uk-card-media-top container">
-                                <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
-                                <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-                             </div>
+      </section>
+      <!--<section class="uk-section-small landing-page-heading  uk-section-default" >
+         <div class="uk-container uk-text-center" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
 
-                          </div>
+           <div>
+             <h2 class="sentence">Ideating your</h2>
+           </div>
+
+         <div class="uk-text-center" uk-grid>
+         <div class="uk-width-1-2">
+         <div class="slidingVertical">
+         <span>Brand</span>
+         <span>Visuals</span>
+         <span>Words</span>
+         <span>Reach</span>
+         <span>Growth</span>
          </div>
-         <div>
-                          <div class="uk-card   uk-card-hover">
-                             <div class="uk-card-media-top container">
-                                <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
-                                <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-                             </div>
-
-                          </div>
          </div>
-         <div>
-                          <div class="uk-card   uk-card-hover" >
-                             <div class="uk-card-media-top container ">
-                                <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
-                                <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-                             </div>
-
-                          </div>
+         <div class="uk-width-1-2">
+         <h2 class="sentence">Digitally.</h2>
          </div>
-         <div>
-                          <div class="uk-card  uk-card-hover" >
-                             <div class="uk-card-media-top container">
-                                <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
-                                <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-                             </div>
-
-                          </div>
          </div>
-         <div>
-                          <div class="uk-card  uk-card-hover" >
-                             <div class="uk-card-media-top container">
-                                <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto" >
-                                <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-                             </div>
 
-                          </div>
          </div>
-       </div>
-     </div>
-   </div>
-     </div>
-          </div>
-
-              </section>
-
-              <section class="uk-section-small uk-section-default section-container" >
-                <div class="uk-container">
-                   <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                      <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                         <div class="uk-width-expand">
-                           <div>
-                           <h2>Services.</h2>
-                           <p>Through precise audience analysis and targeting, we aim to amplify your business value by ensuring you receive the best design and digital strategy suited for you and your company. To achieve that, we strive to provide a wide variety of services that may cater to the needs of your business.</p>
+         </section>-->
+      <section class="uk-section-small uk-section-default" >
+         <div class="uk-container">
+            <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+               <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+                  <div class="uk-width-expand">
+                     <h2>RABBIT STUDIO</h2>
+                     <p class="main-content">We are multi-disciplinary design and digital agency, specialised in creating experiences and engagements in various channels.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="uk-section-small uk-section-default section-container" >
+         <div class="uk-container">
+            <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+               <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+                  <div class="uk-width-expand">
+                     <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+                        <div>
+                           <div class="uk-card uk-card-default uk-card-body">
+                              <h2>Visual and Branding</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                            </div>
-                           <div class="uk-flex uk-flex-center">
-                   <div class="uk-card uk-card-default uk-card-body"><h2>Visual and Branding</h2>
-                   <p>We create brand identities. We’re specialists in designing branding designs that will form a memorable impression in the hearts and minds of your customers. Our distinctive logos and corporate identities designs include every ingredient needed to capture the attention of your audience.</p></div>
-                   <div class="uk-card uk-card-default uk-card-body uk-margin-left"><h2>Creative and Marketing</h2>
-                     <p>We craft comprehensive creative content that help your company leverage your brand and products through various digital channels effectively and efficiently. With the support of our specialists, we help you strategise the best digital marketing plan to maximise the efforts of your digital strategy.</p></div>
-               </div>
-               <div class="uk-flex uk-flex-center">
-               <div class="uk-card uk-card-default uk-card-body"><h2>Visual and Branding</h2>
-               <p>We create brand identities. We’re specialists in designing branding designs that will form a memorable impression in the hearts and minds of your customers. Our distinctive logos and corporate identities designs include every ingredient needed to capture the attention of your audience.</p></div>
-               <div class="uk-card uk-card-default uk-card-body uk-margin-left"><h2>Creative and Marketing</h2>
-               <p>We craft comprehensive creative content that help your company leverage your brand and products through various digital channels effectively and efficiently. With the support of our specialists, we help you strategise the best digital marketing plan to maximise the efforts of your digital strategy.</p></div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-            </section>
-
-            <section class="uk-section-large uk-section-default" >
-                     <div class="uk-container">
-                        <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                           <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
-                              <div class="uk-width-expand">
-
-                        <h2>Interested in working with us?</h2>
-                <p>Whether you are making a general enquiry or looking for a prospective partner, please do not hesitate in reaching out to us. Our specialists will handle your enquiries individually and guide you through the process to come up with a unique solution for you to achieve your goals. Don’t hesitate and contact us now!</p>
-                <a href="#" target="_blank" class="uk-button btn-grad">Explore</a>
-
-                  </div>
+                        </div>
+                        <div>
+                           <div class="uk-card uk-card-default uk-card-body">
+                              <h2>Visual and Branding</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                            </div>
                         </div>
                      </div>
-                  </section>
-
-            <footer class="site-footer">
-                  				<nav class="footer__nav">
-                  					<div class="uk-column-1-4@l footer-cells">
-                  						<div class="footer-cell">
-                  							<h2 class="footer-cell-heading">ECSG</h2>
-                  							<ul class="footer-list">
-                                  <li ><a href="/">Home</a></li>
-                                   <li><a href="/about">About</a></li>
-                                    <li><a href="/Works">Works</a></li>
-                                    <li><a href="/contact">Contact</a></li>
-
-                  						</div>
-                  						<div class="footer-cell">
-                  							<h2 class="footer-cell-heading">Services</h2>
-                  							<ul class="footer-list">
-                                  <li ><a href="/branding">Branding</a></li>
-                                  <li><a href="/development">Development</a></li>
-                                  <li><a href="/social-media-marketing">Social Media Marketing</a></li>
-                                  <li><a href="/seo">SEO</a></li>
-                                  <li><a href="/ppc-advertising">PPC Advertising</a></li>
-
-                  							</ul>
-                  						</div>
-                              <div class="footer-cell">
-                  							<h2 class="footer-cell-heading">Locate Us</h2>
-                  							<ul class="footer-list">
-                                  <li>
-                                    <h3 class="footer-sub-heading-2">Mail us</h3>
-                                    <a class="footer-contact-btn" href="help@socialgrandpa.com"><span uk-icon="home"></span> help@socialgrandpa.com </a>
-                                  </li>
-                  								<li>
-                  									<h3 class="footer-sub-heading-2">Help</h3>
-                  									<a class="footer-contact-btn" href="www.socialgrandpa.com"><span uk-icon="mail"></span> www.socialgrandpa.com </a>
-                  								</li>
-                  								<li>
-                  									<h3 class="footer-sub-heading-2">Call us</h3>
-                  									<a class="footer-contact-btn" href="tel:+91 9791 377 196"><span uk-icon="receiver"></span> +91 9791 377 196</a>
-                  								</li>
-                                  <li>
-                  									<h3 class="footer-sub-heading-2">Address</h3>
-                  									<a class="footer-contact-btn" href="#"><span uk-icon="location"></span>ECSG DIGITAL PRIVATE LIMITED,
-2nd floor, no. 157, Rangarajapuram,
-Kodambakkam, Chennai - 600 024,
-Tamilnadu, India </a>
-                  								</li>
-                  							</ul>
-                  						</div>
-                  						<div class="footer-cell">
-                  							<h2 class="footer-cell-heading">Social Media</h2>
-                                  <div class="uk-navbar-item" >
-                                     <a title="Twitter" href="https://twitter.com/Ozaro16" class="uk-icon-button uk-margin-small-right" uk-icon="twitter"></a>
-                                     <a  title="Youtube" href="https://www.youtube.com/channel/UCtwjhYsLJZtOcyFI25qKZFg" class="uk-icon-button uk-margin-small-right" uk-icon="youtube"></a>
-                                     <a  title="Instagram" href="http://instagram.com/ozaro_mediatech" class="uk-icon-button uk-margin-small-right" uk-icon="instagram"></a>
-                                     <a uk-tooltip="title: Facebook; pos: bottom-center" title="Facebook" href="https://www.facebook.com/ozaromediatech" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
-                                     <a title="Linkedin" href="https://www.linkedin.com/company/ozaro-mediatech" class="uk-icon-button" uk-icon="linkedin"></a>
-                                  </div>
-                  						</div>
-                  					</div>
-                  				</nav>
-            					<div class="uk-container uk-container-expand footer-legal">
-            						<span class="uk-text-center">© 2021 ECSG. All rights reserved.</span>
-            					</div>
-
-                  			</footer>
-
-
-
-
-
+                     <div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
+                        <div>
+                           <div class="uk-card uk-card-default uk-card-body">
+                              <h2>Visual and Branding</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="uk-card uk-card-default uk-card-body">
+                              <h2>Visual and Branding</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="uk-section-small uk-section-default" >
+         <div class="uk-container">
+         <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+         <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+            <div class="uk-width-expand">
+               <h2>Clients.</h2>
+               <div uk-slider="autoplay: true; autoplay-interval: 1000">
+                  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                     <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m ">
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" height="500px" widtht="500px">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg"alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg"alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="assets/images/konguvanam-logo.png" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="assets/images/bitbrainstech-logo.png" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="assets/images/rathinam-logo.png" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                        <li>
+                           <img src="assets/images/dhrona-logo.png" alt="">
+                           <div class="uk-position-center uk-panel"></div>
+                        </li>
+                     </ul>
+                     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                  </div>
+                  <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="uk-section-large uk-section-default" >
+         <div class="uk-container">
+            <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+               <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+                  <div class="uk-width-expand">
+                     <h2>Works.</h2>
+                     <div class="uk-grid-match uk-child-width-1-3@s uk-flex-center " uk-grid>
+                        <div>
+                           <div class="uk-card uk-card-hover">
+                              <div class="uk-card-media-top container">
+                                 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
+                                 <div class="overlay">
+                                    <div class="text">Hello World</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="uk-card   uk-card-hover">
+                              <div class="uk-card-media-top container">
+                                 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
+                                 <div class="overlay">
+                                    <div class="text">Hello World</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="uk-card   uk-card-hover">
+                              <div class="uk-card-media-top container">
+                                 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
+                                 <div class="overlay">
+                                    <div class="text">Hello World</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="uk-card   uk-card-hover" >
+                              <div class="uk-card-media-top container ">
+                                 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
+                                 <div class="overlay">
+                                    <div class="text">Hello World</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="uk-card  uk-card-hover" >
+                              <div class="uk-card-media-top container">
+                                 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto">
+                                 <div class="overlay">
+                                    <div class="text">Hello World</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="uk-card  uk-card-hover" >
+                              <div class="uk-card-media-top container">
+                                 <img src="https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg" alt="" width="auto" height="auto" >
+                                 <div class="overlay">
+                                    <div class="text">Hello World</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="uk-section-small uk-section-default section-container" >
+         <div class="uk-container">
+            <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+               <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+                  <div class="uk-width-expand">
+                     <div>
+                        <h2>Services.</h2>
+                        <p>Through precise audience analysis and targeting, we aim to amplify your business value by ensuring you receive the best design and digital strategy suited for you and your company. To achieve that, we strive to provide a wide variety of services that may cater to the needs of your business.</p>
+                     </div>
+                     <div class="uk-flex uk-flex-center">
+                        <div class="uk-card uk-card-default uk-card-body">
+                           <h2>Visual and Branding</h2>
+                           <p>We create brand identities. We’re specialists in designing branding designs that will form a memorable impression in the hearts and minds of your customers. Our distinctive logos and corporate identities designs include every ingredient needed to capture the attention of your audience.</p>
+                        </div>
+                        <div class="uk-card uk-card-default uk-card-body uk-margin-left">
+                           <h2>Creative and Marketing</h2>
+                           <p>We craft comprehensive creative content that help your company leverage your brand and products through various digital channels effectively and efficiently. With the support of our specialists, we help you strategise the best digital marketing plan to maximise the efforts of your digital strategy.</p>
+                        </div>
+                     </div>
+                     <div class="uk-flex uk-flex-center">
+                        <div class="uk-card uk-card-default uk-card-body">
+                           <h2>Visual and Branding</h2>
+                           <p>We create brand identities. We’re specialists in designing branding designs that will form a memorable impression in the hearts and minds of your customers. Our distinctive logos and corporate identities designs include every ingredient needed to capture the attention of your audience.</p>
+                        </div>
+                        <div class="uk-card uk-card-default uk-card-body uk-margin-left">
+                           <h2>Creative and Marketing</h2>
+                           <p>We craft comprehensive creative content that help your company leverage your brand and products through various digital channels effectively and efficiently. With the support of our specialists, we help you strategise the best digital marketing plan to maximise the efforts of your digital strategy.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="uk-section-small uk-section-default" >
+         <div class="uk-container">
+            <div class="uk-grid-large uk-flex-middle"  data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+               <div class="uk-flex-middle" data-uk-scrollspy="target: > div ; delay: 250; cls: uk-animation-slide-bottom-medium">
+                  <div class="uk-width-expand">
+                     <h2>Interested in working with us?</h2>
+                     <p>Whether you are making a general enquiry or looking for a prospective partner, please do not hesitate in reaching out to us. Our specialists will handle your enquiries individually and guide you through the process to come up with a unique solution for you to achieve your goals. Don’t hesitate and contact us now!</p>
+                     <a href="#" target="_blank" class="uk-button btn-grad">Explore</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="site-footer">
+         <nav class="footer__nav">
+            <div class="uk-column-1-4@l footer-cells">
+               <div class="footer-cell">
+                  <h2 class="footer-cell-heading">ECSG</h2>
+                  <ul class="footer-list">
+                  <li ><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/Works">Works</a></li>
+                  <li><a href="/contact">Contact</a></li>
+               </div>
+               <div class="footer-cell">
+                  <h2 class="footer-cell-heading">Services</h2>
+                  <ul class="footer-list">
+                     <li ><a href="/branding">Branding</a></li>
+                     <li><a href="/development">Development</a></li>
+                     <li><a href="/social-media-marketing">Social Media Marketing</a></li>
+                     <li><a href="/seo">SEO</a></li>
+                     <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                  </ul>
+               </div>
+               <div class="footer-cell">
+                  <h2 class="footer-cell-heading">Locate Us</h2>
+                  <ul class="footer-list">
+                     <li>
+                        <h3 class="footer-sub-heading-2">Mail us</h3>
+                        <a class="footer-contact-btn" href="help@socialgrandpa.com"><span uk-icon="home"></span> help@socialgrandpa.com </a>
+                     </li>
+                     <li>
+                        <h3 class="footer-sub-heading-2">Help</h3>
+                        <a class="footer-contact-btn" href="www.socialgrandpa.com"><span uk-icon="mail"></span> www.socialgrandpa.com </a>
+                     </li>
+                     <li>
+                        <h3 class="footer-sub-heading-2">Call us</h3>
+                        <a class="footer-contact-btn" href="tel:+91 9791 377 196"><span uk-icon="receiver"></span> +91 9791 377 196</a>
+                     </li>
+                     <li>
+                        <h3 class="footer-sub-heading-2">Address</h3>
+                        <a class="footer-contact-btn" href="#"><span uk-icon="location"></span>ECSG DIGITAL PRIVATE LIMITED,
+                        2nd floor, no. 157, Rangarajapuram,
+                        Kodambakkam, Chennai - 600 024,
+                        Tamilnadu, India </a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="footer-cell">
+                  <h2 class="footer-cell-heading">Social Media</h2>
+                  <div class="uk-navbar-item" >
+                     <a title="Twitter" href="https://twitter.com/Ozaro16" class="uk-icon-button uk-margin-small-right" uk-icon="twitter"></a>
+                     <a  title="Youtube" href="https://www.youtube.com/channel/UCtwjhYsLJZtOcyFI25qKZFg" class="uk-icon-button uk-margin-small-right" uk-icon="youtube"></a>
+                     <a  title="Instagram" href="http://instagram.com/ozaro_mediatech" class="uk-icon-button uk-margin-small-right" uk-icon="instagram"></a>
+                     <a uk-tooltip="title: Facebook; pos: bottom-center" title="Facebook" href="https://www.facebook.com/ozaromediatech" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
+                     <a title="Linkedin" href="https://www.linkedin.com/company/ozaro-mediatech" class="uk-icon-button" uk-icon="linkedin"></a>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <div class="uk-container uk-container-expand footer-legal">
+            <span class="uk-text-center">© 2021 ECSG. All rights reserved.</span>
+         </div>
+      </footer>
       <script src="/assets/js/main.js"></script>
    </body>
 </html>

@@ -27,5 +27,5 @@ UIkit.util.on('#offcanvas-nav-primary', 'hide', function () {
 UIkit.util.on('#offcanvas-nav-primary', 'hidden', function () {
   // do something
   console.log('offcanvas hidden');
-});
+});*/
 //navigation:

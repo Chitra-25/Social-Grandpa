@@ -33,12 +33,65 @@ body,html {
 		display: none;
 	}
 }
-h1, h2, h3, h4, p, a {
+h1, h2, h3, h4, p {
   font-family: 'Roboto', sans-serif;
+  text-color: black !important;
+}
+a {
+	cursor: pointer;
+}
+a:hover {
+	text-decoration: none;
+}
+/*cursor*/
+.cursor,
+.cursor2,
+.cursor3{
+	position: fixed;
+	border-radius: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	pointer-events: none;
+	left: -100px;
+	top: 50%;
+	mix-blend-mode: difference;
+	-webkit-transition: all 300ms linear;
+	transition: all 300ms linear;
+}
+.cursor{
+	background-color: #fff;
+	height: 0;
+	width: 0;
+	z-index: 99999;
+}
+.cursor2,.cursor3{
+	height: 36px;
+	width: 36px;
+	z-index:99998;
+	-webkit-transition:all 0.3s ease-out;
+	transition:all 0.3s ease-out
+}
+.cursor2.hover,
+.cursor3.hover{
+	-webkit-transform:scale(2) translateX(-25%) translateY(-25%);
+	transform:scale(2) translateX(-25%) translateY(-25%);
+	border:none
+}
+.cursor2{
+	border: 2px solid #fff;
+	box-shadow: 0 0 22px rgba(255, 255, 255, 0.6);
+}
+.cursor2.hover{
+	background: rgba(255,255,255,1);
+	box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
+@media screen and (max-width: 1200px){
+	.cursor,.cursor2,.cursor3{
+		display: none
+	}
+}
 
-//navbar
+navbar
 .uk-light .uk-navbar-nav>li>a {
     color: black;
     font-family:'Roboto';
@@ -140,90 +193,18 @@ h1, h2, h3, h4, p, a {
     display: grid;
   }
 }
-/*aero*/
-
-.sentence{
-  color: #222;
-  font-size: 50px;
-  text-align: center;
+.landing-page-heading {
+  margin-top: 10rem !important;
 }
-/*Wrapper*/
-.wrapper{
- background-color: #ffffff;
- font-family: 'Raleway', sans-serif;
- margin: 100px auto;
- padding: 40px 40px;
- position: relative;
- width: 70%;
+@media only screen and (max-width: 768px) {
+	.landing-page-heading {
+		margin-top: 10rem !important;
+	}
 }
-
-/*Vertical Sliding*/
-.slidingVertical{
-display: inline;
-text-indent: 8px;
-font-size: 50px;
-font-weight: bolder;
+/*main content*/
+.main-content{
+  font-size: 20px;
 }
-.slidingVertical span{
-animation: topToBottom 12.5s linear infinite 0s;
--ms-animation: topToBottom 12.5s linear infinite 0s;
--webkit-animation: topToBottom 12.5s linear infinite 0s;
-color: #ebd834;
-opacity: 0;
-overflow: hidden;
-position: absolute;
-}
-.slidingVertical span:nth-child(2){
-animation-delay: 2.5s;
--ms-animation-delay: 2.5s;
--webkit-animation-delay: 2.5s;
-}
-.slidingVertical span:nth-child(3){
-animation-delay: 5s;
--ms-animation-delay: 5s;
--webkit-animation-delay: 5s;
-}
-.slidingVertical span:nth-child(4){
-animation-delay: 7.5s;
--ms-animation-delay: 7.5s;
--webkit-animation-delay: 7.5s;
-}
-.slidingVertical span:nth-child(5){
-animation-delay: 10s;
--ms-animation-delay: 10s;
--webkit-animation-delay: 10s;
-}
-
-/*topToBottom Animation*/
-@-moz-keyframes topToBottom{
-0% { opacity: 0; }
-5% { opacity: 0; -moz-transform: translateY(-50px); }
-10% { opacity: 1; -moz-transform: translateY(0px); }
-25% { opacity: 1; -moz-transform: translateY(0px); }
-30% { opacity: 0; -moz-transform: translateY(50px); }
-80% { opacity: 0; }
-100% { opacity: 0; }
-}
-@-webkit-keyframes topToBottom{
-0% { opacity: 0; }
-5% { opacity: 0; -webkit-transform: translateY(-50px); }
-10% { opacity: 1; -webkit-transform: translateY(0px); }
-25% { opacity: 1; -webkit-transform: translateY(0px); }
-30% { opacity: 0; -webkit-transform: translateY(50px); }
-80% { opacity: 0; }
-100% { opacity: 0; }
-}
-@-ms-keyframes topToBottom{
-0% { opacity: 0; }
-5% { opacity: 0; -ms-transform: translateY(-50px); }
-10% { opacity: 1; -ms-transform: translateY(0px); }
-25% { opacity: 1; -ms-transform: translateY(0px); }
-30% { opacity: 0; -ms-transform: translateY(50px); }
-80% { opacity: 0; }
-100% { opacity: 0; }
-}
-
-
 
 /*team*/
 .image {
@@ -257,15 +238,10 @@ animation-delay: 10s;
   margin: 0 auto;
   min-height: calc(100vh - 100px);
 }
-
-/*text scrambler*/
-
-
-
 /*quote*/
-@import url('https://fonts.googleapis.com/css?family=Special+Elite');
 .quote-design{
-	font-family: 'Special Elite', cursive;
+	font-family:'Roboto';
+  font-style: italic;
 	background: #fffdf5;
 	color: #3f3f5a;
 	display: flex;
@@ -320,7 +296,7 @@ cite {
             transition: 0.5s;
             cursor: pointer;
             color: grey;
-            box-shadow: 0 0 20px #eee;
+            box-shadow: 0 0 20px #8e8e8e;
             border-radius: 10px;
             display: block;
             box-shadow: 2px 4px 6px rgba(0,0,0,0.355);
@@ -328,7 +304,7 @@ cite {
 
           .btn-grad:hover {
             background-position: right center; /* change the direction of the change here */
-            color: #fff;
+            color:#red;
             text-decoration: none;
           }
 
@@ -366,77 +342,6 @@ cite {
             transform: translate(-50%, -50%);
             text-align: center;
           }
-
-/*form*/
-
-.form{
-  width:340px;
-  height:440px;
-  background:#e6e6e6;
-  border-radius:8px;
-
-  margin:calc(50vh - 220px) auto;
-  padding:20px 30px;
-  max-width:calc(100vw - 40px);
-  box-sizing:border-box;
-  font-family:'Montserrat',sans-serif;
-  position:relative}
-
-input{
-  width:100%;
-  padding:10px;
-  box-sizing:border-box;
-  background:none;
-  outline:none;
-  resize:none;
-  border:0;
-  font-family:'Montserrat',sans-serif;
-  transition:all .3s;
-  border-bottom:2px solid #bebed2
-}
-input:focus{
-  border-bottom:2px solid #78788c
-}
-.formtxt:before{
-  content:attr(type);
-  display:block;
-  margin:28px 0 0;
-  font-size:14px;
-  color:#5a5a5a
-}
-.formbtn{
-    display: inline-block;
-    color: Black;
-    text-decoration: none;
-    padding: 1rem 2rem;
-    border: black 1px solid;
-    border-radius: 30%;
-    margin-top: 40px;
-    opacity: 0;
-    animation-name: btn;
-    animation-duration: 3s;
-    animation-delay: 3s;
-    animation-fill-mode: forwards;
-    transition-property: transform;
-    transition-duration: 1s;
-  }
-
-.formbtn:hover{
-  transform: rotateY(360deg);
-}
-/*.formbtn{
-  float:right;
-  padding:8px 12px;
-  margin:8px 0 0;
-  font-family:'Montserrat',sans-serif;
-  border:2px solid #78788c;
-  background:0;color:#5a5a6e;
-  cursor:pointer;transition:all .3s}
-.formbtn:hover{
-  background:#78788c;
-  color:#fff
-}*/
-
 /*contact*/
 .mapouter{
   position:relative;
@@ -490,9 +395,6 @@ iframe{
     width:auto;
 }
 }
-
-
-
 /*//footer*/
 
 .footer-cell {
